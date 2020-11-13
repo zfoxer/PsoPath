@@ -10,11 +10,11 @@ License: GNU GPL Version 3
 ## About the project
 
 The shortest path problem is solved by many methods. Heuristics offer lower complexity 
-in expense of accuracy. There are many use cases where the lower accuracy is acceptable 
+in expense of accuracy. There are many use-cases where the lower accuracy is acceptable 
 in return of lower consumption of computing resources.
 
 Particle Swarm Optimisation (PSO) emulates the social behaviour of, e.g., a flock of 
-birds, as a stochastic optimization method [1]. Specifically, a particle is an entity 
+birds, as a stochastic optimisation method [1]. Specifically, a particle is an entity 
 representing a solution in the search space. Several particles cooperate inside an 
 algorithmic flow to occupy positions close to the best solution. So, when a number of 
 predefined iterations for evaluation ends (depending on topology resources like 
@@ -40,7 +40,7 @@ Tested with clang 11 and libc++ from the LLVM project.
 
 Create a new instance of <em>PsoSystem</em> in your code passing as parameters the JSON 
 topology file and the numbers of iterations and particles (default values are also provided 
-but shortest paths aren't returned under all topology sizes). Next, execute the method 
+but the shortest paths aren't returned under every topology size). Next, execute the method 
 <em>path(src, dest)</em> where <em>src</em> is the source node and <em>dest</em> the 
 destination to reach. This returns the valid path that particles converge to.
 

@@ -24,9 +24,9 @@
 
 int simpleRun()
 {
-	AdaptiveSystem* pso = new PsoSystem("topology.json", 
+    AdaptiveSystem* pso = new PsoSystem("topology.json", 
 			PsoSystem::POPULATION_SIZE, PsoSystem::ITERATIONS);
-	auto nodePath = pso->path(0, 19);
+	auto nodePath = pso->path(3, 11);
 	for(int n : nodePath)
 		std::cout << n << " ";
 	std::cout << std::endl;
