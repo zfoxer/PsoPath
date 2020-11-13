@@ -1,7 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
- * Copyright (C) 2020-2021 by Constantine Kyriakopoulos
- * @version 0.9
+ * Copyright (C) 2020 by Constantine Kyriakopoulos
+ * @version 1.0
  * 
  * @section LICENSE
  * 
@@ -54,7 +54,7 @@ void AdaptiveSystem::initTopo(const std::string& filename)
 	for(ptree::const_iterator it = pt.begin(); it != end; ++it)
 	{
 		if(!std::strcmp(it->first.c_str(), "number_of_nodes"))
-            continue;
+			continue;
 
 		int edgeId = 0;
 		ptree::const_iterator end2 = it->second.end();
