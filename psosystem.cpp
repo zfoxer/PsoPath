@@ -1,7 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
  * Copyright (C) 2020 by Constantine Kyriakopoulos
- * @version 1.0
+ * @version 1.0.1
  * 
  * @section LICENSE
  * 
@@ -42,6 +42,9 @@ PsoSystem::PsoSystem(const std::string& filename, int popSize, int iterations, b
 		this->popSize = POPULATION_SIZE;
 		this->iterations = ITERATIONS;
 	}
+
+	std::random_device rd;
+	gen = std::mt19937_64(rd());
 }
 
 PsoSystem::~PsoSystem() { }
@@ -82,8 +85,6 @@ std::vector<int> PsoSystem::path(int src, int dest)
 void PsoSystem::initParticles(int src, int dest)
 {
 	particles.clear();
-	std::random_device rd;
-	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> distro(-VELOCITY_INIT_LIMIT, VELOCITY_INIT_LIMIT);
 
 	int i = 0;
@@ -108,8 +109,6 @@ void PsoSystem::initParticles(int src, int dest)
 void PsoSystem::generatePri(Particle& particle, int src, int dest)
 {
 	particle.nodePriVec.clear();
-	std::random_device rd;
-	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> distro(-PRIORITY_INIT_LIMIT, PRIORITY_INIT_LIMIT);
 		
 	particle.nodePriVec.push_back({src, distro(gen)});
@@ -198,8 +197,6 @@ void PsoSystem::updateFitness(Particle& particle) const noexcept(false)
 
 void PsoSystem::updateVelocity(Particle& particle)
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
 	std::uniform_real_distribution<> distro(0, 1);
 	
 	for(int i = 0; i < nodes; ++i)
