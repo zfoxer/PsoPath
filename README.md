@@ -54,4 +54,7 @@ algorithm and its applications. Mathematical Problems in Engineering, 2015.
 
 ## Changelog
 
-1.0      2020-11-13    Initial public release
+<pre>
+1.0.1  2020-11-17    Execution time improvement
+1.0    2020-11-13    Initial public release
+</pre>
