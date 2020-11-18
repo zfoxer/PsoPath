@@ -2,7 +2,7 @@ PsoPath: Particle Swarm Optimisation algorithm for the shortest path problem
 
 ```python
 Copyright (C) 2020 by Constantine Kyriakopoulos
-Version: 1.0.1
+Version: 1.0.2
 License: GNU GPL Version 3
 ```
 
@@ -55,6 +55,7 @@ algorithm and its applications. Mathematical Problems in Engineering, 2015.
 ## Changelog
 
 <pre>
+1.0.2  2020-1X-XX    Extended the interface for individual edge insertion
 1.0.1  2020-11-17    Execution time improvement
 1.0    2020-11-13    Initial public release
 </pre>

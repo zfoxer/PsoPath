@@ -1,7 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
  * Copyright (C) 2020 by Constantine Kyriakopoulos
- * @version 1.0.1
+ * @version 1.0.2
  *
  * @section LICENSE
  *  
@@ -41,19 +41,23 @@ public:
 		int edgeEnd;
 		double weight;
 		long int id;
-		bool operator<(const Edge&) const;
-		bool operator>(const Edge&) const;
-		bool operator==(const Edge&) const;
+		bool operator<(const AdaptiveSystem::Edge&) const;
+		bool operator>(const AdaptiveSystem::Edge&) const;
+		bool operator==(const AdaptiveSystem::Edge&) const;
 	};
 
 	AdaptiveSystem();
 	virtual ~AdaptiveSystem();
 	virtual std::vector<int> path(int, int) = 0;
+	virtual void insertEdge(int, int, double) noexcept(false);
 	virtual void clear() = 0;
 
 protected:
 	virtual void initTopo(const std::string&);
-	std::vector<Edge> edges;
+	std::vector<AdaptiveSystem::Edge> edges;
+
+private:
+	static int edgeIdCnt;
 };
 
 #endif // ADAPTIVESYSTEM_H

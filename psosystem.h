@@ -1,7 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
  * Copyright (C) 2020 by Constantine Kyriakopoulos
- * @version 1.0.1
+ * @version 1.0.2
  * 
  * @section LICENSE
  * 
@@ -65,12 +65,14 @@ public:
 	static constexpr double C2 = 2.05;
 	static constexpr double FI = C1 + C2;
 	PsoSystem(const std::string&, int, int, bool = false);
+	PsoSystem(int, int, bool = false);
 	virtual ~PsoSystem();
 	virtual std::vector<int> path(int, int);
 	virtual void clear();
+	virtual void insertEdge(int, int, double) noexcept(false);
 
 protected:
-	virtual void updateFitness(Particle&) const noexcept(false);
+	virtual void updateFitness(Particle&) noexcept(false);
 
 private:
 	void initParticles(int, int);

@@ -1,7 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
  * Copyright (C) 2020 by Constantine Kyriakopoulos
- * @version 1.0.1
+ * @version 1.0.2
  * 
  * @section LICENSE
  * 
@@ -22,30 +22,62 @@
 
 #include "adaptivesystem.h"
 
-AdaptiveSystem::AdaptiveSystem() { }
-
-AdaptiveSystem::~AdaptiveSystem() { }
-
+/**
+ * Constructor for edges.
+ */
 AdaptiveSystem::Edge::Edge()
 {
 	edgeStart = edgeEnd = weight = id = 0;
 }
 
-bool AdaptiveSystem::Edge::operator<(const Edge& rhs) const
+/**
+ * Comparison of current instance with the rhs, based on ids.
+ *
+ * @param rhs The right-hand side object
+ * @return bool The indication of current id being less than rhs'
+ */
+bool AdaptiveSystem::Edge::operator<(const AdaptiveSystem::Edge& rhs) const
 {
 	return id < rhs.id;
 }
 
-bool AdaptiveSystem::Edge::operator>(const Edge& rhs) const
+/**
+ * Comparison of current instance with the rhs, based on ids.
+ *
+ * @param rhs The right-hand side object
+ * @return bool The indication of current id being greater than rhs'
+ */
+bool AdaptiveSystem::Edge::operator>(const AdaptiveSystem::Edge& rhs) const
 {
 	return id > rhs.id;
 }
 
-bool AdaptiveSystem::Edge::operator==(const Edge& rhs) const
+/**
+ * Comparison of current instance with the rhs for equality, based on ids.
+ *
+ * @param rhs The right-hand side object
+ * @return bool The indication of equality
+ */
+bool AdaptiveSystem::Edge::operator==(const AdaptiveSystem::Edge& rhs) const
 {
 	return id == rhs.id;
 }
 
+/**
+ * Constructor for the AdaptiveSystem.
+ */
+AdaptiveSystem::AdaptiveSystem() { }
+
+/**
+ * Destructor for the AdaptiveSystem.
+ */
+AdaptiveSystem::~AdaptiveSystem() { }
+
+/**
+ * Initialises the local topology representation.
+ * 
+ * @param filename JSON-formatted file containing the topology representation
+ */
 void AdaptiveSystem::initTopo(const std::string& filename)
 {
 	ptree pt;
@@ -56,7 +88,6 @@ void AdaptiveSystem::initTopo(const std::string& filename)
 		if(!std::strcmp(it->first.c_str(), "number_of_nodes"))
 			continue;
 
-		int edgeId = 0;
 		ptree::const_iterator end2 = it->second.end();
 		for(ptree::const_iterator it2 = it->second.begin(); it2 != end2; ++it2)
 		{
@@ -80,12 +111,29 @@ void AdaptiveSystem::initTopo(const std::string& filename)
 					length = it3->second.get_value<int>();
 			}
 
-			AdaptiveSystem::Edge edge;
-			edge.edgeStart = src;
-			edge.edgeEnd = dest;
-			edge.weight = static_cast<double>(length);
-			edge.id = ++edgeId;
-			edges.push_back(edge);
+			insertEdge(src, dest, static_cast<double>(length));
 		}
 	}
 }
+
+/**
+ * Inserts an edge.
+ * 
+ * @param src Source node
+ * @param dest Destination node
+ * @param weight Weight for the edge
+ */
+void AdaptiveSystem::insertEdge(int src, int dest, double weight) noexcept(false)
+{
+	AdaptiveSystem::Edge edge;
+	edge.edgeStart = src;
+	edge.edgeEnd = dest;
+	edge.weight = weight;
+	edge.id = ++edgeIdCnt;
+	edges.push_back(edge);
+}
+
+/**
+ * Used for producing edge IDs.
+ */
+int AdaptiveSystem::edgeIdCnt = 0;

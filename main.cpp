@@ -1,7 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
  * Copyright (C) 2020 by Constantine Kyriakopoulos
- * @version 1.0.1
+ * @version 1.0.2
  * 
  * @section LICENSE
  *  
@@ -26,9 +26,9 @@ bool simpleRun()
 {
 	AdaptiveSystem* pso = new PsoSystem("topology.json", 
 			PsoSystem::POPULATION_SIZE, PsoSystem::ITERATIONS);
-	auto nodePath = pso->path(3, 8);
-	for(int n : nodePath)
-		std::cout << n << " ";
+	auto nodePath = pso->path(0, 19);
+	for(int node : nodePath)
+		std::cout << node << " ";
 	std::cout << std::endl;
 	delete pso;
 
