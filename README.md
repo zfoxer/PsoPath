@@ -1,4 +1,4 @@
-PsoPath: Particle Swarm Optimisation algorithm for the shortest path problem
+# PsoPath: Particle Swarm Optimisation algorithm for the shortest path problem
 
 ```python
 Copyright (C) 2020 by Constantine Kyriakopoulos
