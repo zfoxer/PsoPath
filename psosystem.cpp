@@ -102,7 +102,7 @@ std::vector<int> PsoSystem::path(int src, int dest)
 	initParticles(src, dest);
 
 	// For each particle, construct path and store its fitness value
-	// Iterate and update pBest and nBest in each Particle
+	// Iterate and update pBest and nBest in each particle
 	for(auto& particle : particles)
 	{
 		constructPath(particle);
