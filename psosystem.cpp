@@ -54,6 +54,13 @@ PsoSystem::PsoSystem(int popSize, int iterations, bool useM)
 	init(popSize, iterations, useM);
 }
 
+/**
+ * Initialises for the PSO system.
+ *  
+ * @param popSize Population size for the PSO system
+ * @param iterations Number of iterations while constructing path
+ * @param useM The M parameter is considered, looking back only M places while traversing
+ */
 void PsoSystem::init(int popSize, int iterations, bool useM)
 {
 	if(popSize > 0 && iterations > 0)
