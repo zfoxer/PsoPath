@@ -75,6 +75,7 @@ protected:
 	virtual void updateFitness(Particle&) noexcept(false);
 
 private:
+	void init(int, int, bool);
 	void initParticles(int, int);
 	void generatePri(Particle&, int, int);
 	void constructPath(Particle&);

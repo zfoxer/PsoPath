@@ -33,26 +33,13 @@
 PsoSystem::PsoSystem(const std::string& filename, int popSize, int iterations, bool useM)
 {
 	initTopo(filename);
-	this->useM = useM;
 	
 	std::set<int> uniqueNodes;
 	for(auto& edge : edges)
 		uniqueNodes.insert({edge.edgeStart, edge.edgeEnd});
 	nodes = uniqueNodes.size();
 
-	if(popSize > 0 && iterations > 0)
-	{
-		this->popSize = popSize;
-		this->iterations = iterations;
-	}
-	else
-	{
-		this->popSize = POPULATION_SIZE;
-		this->iterations = ITERATIONS;
-	}
-
-	std::random_device rd;
-	gen = std::mt19937_64(rd());
+	init(popSize, iterations, useM);
 }
 
 /**
@@ -64,8 +51,11 @@ PsoSystem::PsoSystem(const std::string& filename, int popSize, int iterations, b
  */
 PsoSystem::PsoSystem(int popSize, int iterations, bool useM)
 {
-	this->useM = useM;
-	
+	init(popSize, iterations, useM);
+}
+
+void PsoSystem::init(int popSize, int iterations, bool useM)
+{
 	if(popSize > 0 && iterations > 0)
 	{
 		this->popSize = popSize;
@@ -77,6 +67,7 @@ PsoSystem::PsoSystem(int popSize, int iterations, bool useM)
 		this->iterations = ITERATIONS;
 	}
 
+	this->useM = useM;
 	std::random_device rd;
 	gen = std::mt19937_64(rd());
 }

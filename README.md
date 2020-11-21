@@ -48,8 +48,7 @@ destination to reach. This returns the valid path that particles converge to.
 ## Related work
 
 ```python
-[1] Zhang, Y., Wang, S. and Ji, G. A comprehensive survey on particle swarm optimization 
-algorithm and its applications. Mathematical Problems in Engineering, 2015.
+[1] Zhang, Y., Wang, S. and Ji, G. A comprehensive survey on particle swarm optimization algorithm and its applications. Mathematical Problems in Engineering, 2015.
 ```
 
 ## Changelog
