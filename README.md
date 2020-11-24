@@ -1,4 +1,4 @@
-# PsoPath: Particle Swarm Optimisation algorithm for the shortest path problem
+# PsoPath: Particle Swarm Optimization algorithm for the shortest path problem
 
 ```python
 Copyright (C) 2020 by Constantine Kyriakopoulos
@@ -13,8 +13,8 @@ The shortest path problem is solved by many methods. Heuristics offer lower comp
 in expense of accuracy. There are many use-cases where the lower accuracy is acceptable 
 in return of lower consumption of computing resources.
 
-Particle Swarm Optimisation (PSO) emulates the social behaviour of, e.g., a flock of 
-birds, as a stochastic optimisation method [1]. Specifically, a particle is an entity 
+Particle Swarm Optimization (PSO) emulates the social behaviour of, e.g., a flock of 
+birds, as a stochastic optimization method [1]. Specifically, a particle is an entity 
 representing a solution in the search space. Several particles cooperate inside an 
 algorithmic flow to occupy positions close to the best solution. So, when a number of 
 predefined iterations for evaluation ends (depending on topology resources like 
@@ -33,7 +33,7 @@ being optimal but more computational resources are consumed.
 
 There are only two requirements, i.e., the Boost Library and the availability of C++20 
 or C++17 standard. Boost is utilised for parsing the JSON representation of the topology. 
-Tested with clang 11 and libc++ from the LLVM project.
+Tested with Clang 11 and libc++ from the LLVM project.
 
 
 ## Usage
