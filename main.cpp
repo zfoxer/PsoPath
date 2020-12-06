@@ -1,6 +1,7 @@
 /*
  * PsoPath: Shortest path calculation using Particle Swarm Optimisation
  * Copyright (C) 2020 by Constantine Kyriakopoulos
+ * zfox@users.sourceforge.net
  * @version 1.0.2
  * 
  * @section LICENSE
